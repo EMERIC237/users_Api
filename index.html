@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>replit</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  Hello world
-  <script src="script.js"></script>
-</body>
-
+  <body>
+    <h2>Our users</h2>
+    <div class="table-wrapper-style">
+      <table class="table-style">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody id="users-table-body"></tbody>
+      </table>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  <!-- The Modal to be displayed -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal-container" id="modal">
+    <div class="modal-container-controls">
+      <button class="modal-container-close-button" id="modal-close-button">
+        X
+      </button>
+    </div>
+    <div class="modal-container-content">
+      <div class="modal-container-content-no-scroll" id="modal-title"></div>
+      <div class="modal-container-content-scroll" id="modal-content"></div>
+    </div>
+  </div>
 </html>

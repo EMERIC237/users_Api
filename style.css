@@ -1,3 +1,262 @@
-.wow {
-  width: 100px;
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(35deg, #CCFFFF, #FFCCCC, rgb(82, 82, 209))
+}
+
+h2 {
+  text-align: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  padding: 30px 0;
+}
+
+/* Table CSS properties */
+.table-wrapper-style {
+  margin: 10px 70px 70px;
+  box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
+}
+
+.table-style {
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: normal;
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  background-color: white;
+}
+
+
+.table-style td,
+.table-style th {
+  text-align: center;
+  padding: 8px;
+}
+
+.table-style td {
+  border-right: 1px solid #f8f8f8;
+  font-size: 12px;
+}
+
+.table-style td:hover {
+  border-radius: 30px;
+  background-color: rgba(29, 29, 195, 0.343);
+  transform: translate3D(0, -1px, 0) scale(1.02);
+  color: #f7f7f9;
+}
+
+.table-style thead th {
+  color: #ffffff;
+  background: #4FC3A1;
+}
+
+
+.table-style thead th:nth-child(odd) {
+  color: #ffffff;
+  background: #324960;
+}
+
+.table-style tr:nth-child(even) {
+  background: #F8F8F8;
+}
+
+
+/* modal CSS properties */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-overlay.modal-overlay-visible {
+  display: block;
+}
+
+.modal-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 101;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 20px 15px 20px 0px rgb(255 255 255 / 20%);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+}
+
+.modal-container.modal-container-visible {
+  display: block;
+}
+
+.modal-container .modal-container-controls .modal-container-close-button {
+  background-color: red;
+  opacity: 0.7;
+  color: white;
+  border-radius: 65px;
+  padding: 10px;
+  border: 0px;
+}
+
+.modal-container .modal-container-controls .modal-container-close-button:hover {
+  opacity: 1;
+  transform: translate3D(0, -1px, 0) scale(1.03);
+  cursor: pointer;
+}
+
+.modal-container .modal-container-content {
+  margin: 40px;
+  text-align: justify;
+}
+
+/* Here we define the fixed content */
+.modal-container .modal-container-content .modal-container-content-no-scroll {
+  margin: 20px;
+}
+
+/* Here we define the 'scrollable' content */
+.modal-container .modal-container-content .modal-container-content-scroll {
+  position: absolute;
+  width: auto;
+  height: calc(100% - 140px);
+  overflow-y: auto;
+  margin: 10px 30px 30px 30px;
+  padding: 0px 20px 0px 0px;
+}
+
+.modal-container .modal-container-content .modal-container-content-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.modal-container .modal-container-content .modal-container-content-scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px #333;
+  border-radius: 10px;
+}
+
+.modal-container .modal-container-content .modal-container-content-scroll::-webkit-scrollbar-thumb {
+  background: rgba(51, 51, 51, 0.8);
+  opacity: 0.6;
+  border-radius: 10px;
+}
+
+.modal-container .modal-container-content .modal-container-content-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(51, 51, 51, 1);
+}
+
+.post-container{
+  overflow-y: auto;
+  margin: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+.post-container p {
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: thin solid #e0e0e0;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+  .table-style {
+    display: block;
+    width: 100%;
+  }
+
+  .table-wrapper:before {
+    content: "Scroll horizontally >";
+    display: block;
+    text-align: right;
+    font-size: 11px;
+    color: white;
+    padding: 0 0 10px;
+  }
+
+  .table-style thead,
+  .table-style tbody,
+  .table-style thead th {
+    display: block;
+  }
+
+  .table-style thead th:last-child {
+    border-bottom: none;
+  }
+
+  .table-style thead {
+    float: left;
+  }
+
+  .table-style tbody {
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .table-style td,
+  .table-style th {
+    padding: 20px .625em .625em .625em;
+    height: 60px;
+    vertical-align: middle;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 120px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+
+  .table-style thead th {
+    text-align: left;
+    border-bottom: 1px solid #f7f7f9;
+  }
+
+  .table-style tbody tr {
+    display: table-cell;
+  }
+
+  .table-style tbody tr:nth-child(odd) {
+    background: none;
+  }
+
+  .table-style tr:nth-child(even) {
+    background: transparent;
+  }
+
+  .table-style tr td:nth-child(odd) {
+    background: #F8F8F8;
+    border-right: 1px solid #E6E4E4;
+  }
+
+  .table-style tr td:nth-child(even) {
+    border-right: 1px solid #E6E4E4;
+  }
+
+  .table-style tbody td {
+    display: block;
+    text-align: center;
+  }
 }
